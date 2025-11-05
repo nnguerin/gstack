@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "mobile-test",
-    "slug": "mobile-test",
+    "name": "runway-mobile",
+    "slug": "runway-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "mobiletest",
+    "scheme": "runwaymobile",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

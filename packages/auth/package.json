@@ -1,5 +1,5 @@
 {
-  "name": "@gstack/api",
+  "name": "@gstack/auth",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
