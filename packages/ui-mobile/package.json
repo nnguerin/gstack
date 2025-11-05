@@ -1,0 +1,22 @@
+{
+  "name": "@gstack/ui-mobile",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./button": {
+      "import": "./dist/button.js",
+      "types": "./src/button.ts"
+    }
+  },
+  "devDependencies": {
+    "@gstack/typescript-config": "workspace:*",
+    "@types/react": "catalog:"
+  },
+  "dependencies": {
+    "react": "catalog:",
+    "react-native": "catalog:"
+  }
+}
