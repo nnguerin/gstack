@@ -6,9 +6,12 @@ import ParallaxScrollView from "@/components/parallax-scroll-view";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { Link } from "expo-router";
-import { Button } from "@gstack/ui-mobile/button";
+import { Button } from "react-native-paper";
+import { useSupabaseAuthContext } from "@gstack/auth/supabase";
 
 export default function HomeScreen() {
+  const { profile } = useSupabaseAuthContext();
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
@@ -21,7 +24,7 @@ export default function HomeScreen() {
     >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome, Nima!</ThemedText>
-        <Button text="Get Started" onClick={() => {}} />
+        <Button>Get started</Button>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
@@ -84,6 +87,12 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app</ThemedText> to{" "}
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Username</ThemedText>
+        <ThemedText>{profile?.username}</ThemedText>
+        <ThemedText type="subtitle">Full name</ThemedText>
+        <ThemedText>{profile?.full_name}</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );

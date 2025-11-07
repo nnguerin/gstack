@@ -1,18 +1,24 @@
 {
   "name": "@gstack/auth",
-  "type": "module",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc"
   },
   "exports": {
-    "./button": {
-      "import": "./dist/button.js",
-      "types": "./src/button.ts"
-    }
+    "./supabase": "./dist/supabase.js"
   },
   "devDependencies": {
-    "@gstack/typescript-config": "workspace:*"
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@gstack/typescript-config": "workspace:*",
+    "supabase": "^2.54.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@supabase/supabase-js": "^2.80.0",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-native": "catalog:",
+    "react-native-url-polyfill": "^3.0.0"
+  }
 }
