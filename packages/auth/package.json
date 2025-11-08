@@ -5,20 +5,20 @@
     "build": "tsc"
   },
   "exports": {
-    "./supabase": "./dist/supabase.js"
+    "./supabase": "./src/supabase.tsx"
   },
   "devDependencies": {
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.10",
     "@gstack/typescript-config": "workspace:*",
     "supabase": "^2.54.11"
   },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "react-native": "^0.81.0"
+  },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^2.2.0",
-    "@supabase/supabase-js": "^2.80.0",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "react-native": "catalog:",
-    "react-native-url-polyfill": "^3.0.0"
+    "@supabase/supabase-js": "^2.80.0"
   }
 }

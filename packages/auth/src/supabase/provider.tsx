@@ -1,24 +1,19 @@
-import React from "react";
-import { createSupabaseClient, SupabaseConfig } from "./client.js";
-import type { Session } from "@supabase/supabase-js";
-import { JSX, PropsWithChildren, useEffect, useState } from "react";
-import { SupabaseAuthContext } from "./context.js";
+import type { Session, SupabaseClient } from "@supabase/supabase-js";
+import React, { JSX, PropsWithChildren, useEffect, useState } from "react";
+import { SupabaseAuthContext } from "./context";
 
 interface SupabaseAuthProviderProps {
-  config: SupabaseConfig;
+  client: SupabaseClient;
   children: React.ReactNode;
 }
 
 export function SupabaseAuthProvider({
-  config,
+  client,
   children,
 }: PropsWithChildren<SupabaseAuthProviderProps>): JSX.Element {
-  const [client] = useState(() => createSupabaseClient(config));
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  console.log("CLIENT", client);
 
   // Fetch the session once, and subscribe to auth state changes
   useEffect(() => {
@@ -85,7 +80,6 @@ export function SupabaseAuthProvider({
   };
 
   const signUp = async (email: string, password: string) => {
-    console.log("trying to sign up", { email, password });
     const { error } = await client.auth.signUp({
       email,
       password,

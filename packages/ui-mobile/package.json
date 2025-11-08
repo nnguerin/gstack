@@ -7,16 +7,19 @@
     "build": "tsc"
   },
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./src/index.tsx"
   },
   "devDependencies": {
     "@gstack/typescript-config": "workspace:*",
-    "@types/react": "catalog:"
+    "@types/react": "^19.1.10"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "react-native": "^0.81.0"
   },
   "dependencies": {
-    "react": "catalog:",
-    "react-native": "catalog:",
-    "react-native-paper": "catalog:",
-    "react-native-safe-area-context": "catalog:"
+    "react-native-paper": "^5.14.5",
+    "react-native-safe-area-context": "^5.6.2"
   }
 }

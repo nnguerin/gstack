@@ -13,6 +13,7 @@ import {
 
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { SplashScreenController } from "@/components/splash-screen-controller";
+import { supabase } from "@/lib/supabase";
 
 export const unstable_settings = {
   anchor: "(tabs)",
@@ -20,6 +21,8 @@ export const unstable_settings = {
 
 function RootNavigator() {
   const { isLoggedIn } = useSupabaseAuthContext();
+
+  console.log(isLoggedIn);
 
   return (
     <Stack>
@@ -39,16 +42,10 @@ function RootNavigator() {
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const supabaseClientConfig = {
-    supabaseUrl: process.env.EXPO_PUBLIC_SUPABASE_URL ?? "",
-    supabaseAnonKey: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? "",
-  };
-
-  console.log(supabaseClientConfig);
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <SupabaseAuthProvider config={supabaseClientConfig}>
+      <SupabaseAuthProvider client={supabase}>
         <SplashScreenController />
         <RootNavigator />
         <StatusBar style="auto" />
