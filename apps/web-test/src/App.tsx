@@ -1,15 +1,7 @@
-import { SupabaseAuthProvider } from "@gstack/auth/supabase";
-import { supabase } from "./lib/supabase";
-import Test from "./components/Test";
+import Header from "./components/Header";
 
 function App() {
-  console.log("App component rendered", supabase);
-
-  return (
-    <SupabaseAuthProvider client={supabase}>
-      <Test />
-    </SupabaseAuthProvider>
-  );
+  return <Header />;
 }
 
 export default App;

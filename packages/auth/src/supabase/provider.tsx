@@ -99,7 +99,7 @@ export function SupabaseAuthProvider({
         session,
         isLoading,
         profile,
-        isLoggedIn: session != undefined,
+        isLoggedIn: Object.hasOwn(session || {}, "access_token"),
         signIn,
         signUp,
         signOut,

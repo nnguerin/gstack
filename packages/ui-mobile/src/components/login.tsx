@@ -1,16 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, TextInput } from "react-native-paper";
-
-interface LoginScreenProps {
-  email?: string;
-  password?: string;
-  onEmailChange?: (email: string) => void;
-  onPasswordChange?: (password: string) => void;
-  onSignIn: () => void;
-  onSignUp: () => void;
-  loading?: boolean;
-}
+import { LoginScreenProps } from "../types";
 
 export function LoginScreen({
   email,

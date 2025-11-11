@@ -22,16 +22,10 @@ export const unstable_settings = {
 function RootNavigator() {
   const { isLoggedIn } = useSupabaseAuthContext();
 
-  console.log(isLoggedIn);
-
   return (
     <Stack>
       <Stack.Protected guard={isLoggedIn}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="modal"
-          options={{ presentation: "modal", title: "Modal" }}
-        />
       </Stack.Protected>
       <Stack.Protected guard={!isLoggedIn}>
         <Stack.Screen name="login" options={{ headerShown: false }} />
@@ -46,9 +40,9 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <SupabaseAuthProvider client={supabase}>
+        <StatusBar style="auto" />
         <SplashScreenController />
         <RootNavigator />
-        <StatusBar style="auto" />
       </SupabaseAuthProvider>
     </ThemeProvider>
   );

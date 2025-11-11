@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
-import { LoginScreen } from "@gstack/ui-mobile";
 import { useSupabaseAuthContext } from "@gstack/auth/supabase";
 import { useState } from "react";
+import { SplashLogin } from "@gstack/ui-mobile";
 
 export default function LoginScreenContainer() {
   const { signIn, signUp } = useSupabaseAuthContext();
@@ -9,23 +9,21 @@ export default function LoginScreenContainer() {
   const [password, setPassword] = useState("");
 
   return (
-    <>
-      <View style={styles.container}>
-        <LoginScreen
-          email={email}
-          password={password}
-          onEmailChange={setEmail}
-          onPasswordChange={setPassword}
-          onSignIn={() => signIn(email, password)}
-          onSignUp={() => signUp(email, password)}
-        />
-      </View>
-    </>
+    <View style={styles.container}>
+      <SplashLogin
+        email={email}
+        password={password}
+        onEmailChange={setEmail}
+        onPasswordChange={setPassword}
+        onSignIn={() => signIn(email, password)}
+        onSignUp={() => signUp(email, password)}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    flex: 1,
   },
 });
